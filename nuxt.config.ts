@@ -1,8 +1,7 @@
-export default {
-  // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
+import { NuxtConfig } from '@nuxt/types'
 
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+const config: NuxtConfig = {
+  target: 'static',
   head: {
     title: '<whyk-log>',
     meta: [
@@ -12,40 +11,14 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.jpg' }],
   },
-
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
-  ],
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    // https://go.nuxtjs.dev/content
-    '@nuxt/content',
-  ],
-
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/stylelint-module'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content'],
   axios: {},
-
-  // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 }
+
+export default config

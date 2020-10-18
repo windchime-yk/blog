@@ -40,7 +40,7 @@ html {
 p,
 a,
 li {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .header {

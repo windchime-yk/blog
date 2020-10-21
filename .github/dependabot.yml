@@ -6,14 +6,12 @@ updates:
   schedule:
     interval: daily
     time: '00:00'
+    timezone: 'Asia/Tokyo'
   open-pull-requests-limit: 10
-  reviewers:
-    - windchime-yk
-  assignees:
-    - windchime-yk
+  labels:
+    - 'Type: Environment'
   commit-message:
-    prefix: fix
-    prefix-development: chore
+    prefix: chore
     include: scope
 # Fetch and update latest `github-actions` pkgs
 - package-ecosystem: github-actions
@@ -21,12 +19,14 @@ updates:
   schedule:
     interval: daily
     time: '00:00'
+    timezone: 'Asia/Tokyo'
   open-pull-requests-limit: 10
+  labels:
+    - 'Type: Environment'
   reviewers:
     - windchime-yk
   assignees:
     - windchime-yk
   commit-message:
-    prefix: fix
-    prefix-development: chore
+    prefix: chore
     include: scope

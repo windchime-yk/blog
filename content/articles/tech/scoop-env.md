@@ -4,105 +4,127 @@ description: 'パッケージマネージャーにすべて丸投げして、楽
 date: '2020/11/01'
 ---
 
-WhyKです。この記事はDropboxを漁ってたら見つけたので、供養がてら載せておきます。確か、2018年に出す予定だった記事です。  
-今もWindowsでScoopを使って環境構築していますが、そんなに変わってないと思います（Scoopのインストールコマンドは変わっていたので書き換えました）
+WhyKです。この記事はDropboxを漁ってたら見つけたので、少しリライトして載せておきます。確か2018年に書いたものですが、今もそんなに変わってないと思うので（Scoopのインストールコマンドは変わっていたので書き換えました）
 
 さて、今回はScoopという便利なパッケージマネージャーを使って開発環境を整備します。Macでいう、Homebrewの立ち位置にあるソフトウェアのことです。  
 ちなみに、自分はChocolateyとPowerShellのパッケージマネージャーは使ったことないので、比較するコンテンツは皆無です。あしからず。
 
 ## 導入の経緯
+※ ただの個人的経緯なので飛ばしてOKです
+
 前々から、Scoopという便利なパッケージマネージャーがあることは聞いていました。しかし自分は、「Nodistだけあれば充分だなー。Node.jsしか使わないし」と思って導入を先送りにしていました。  
 そうこうしているうちにScoopのことなどすっかり忘れてたんですが、最近になってPythonやGolangなどを利用する機会があり、そこでexeファイルをダウンロードする面倒な工程を踏むのに疲れていました。Golangなんて、GOPATH通すのに2日かかりましたからね。2回目の環境構築はそれで挫折しましたし。  
 環境構築で挫折するなんて真っ平御免だー！  
 そう思っていた折に、batというCLIのREADMEを読んでたら「Scoopでインストールしてね！（意訳）」って書かれてたんですよ。そこでScoopを思い出して、「パッケージマネージャーに環境構築を全てぶん投げればいいのでは？」というすごく簡単な結論に行き着いて、Scoopによる開発環境の再構築に着手しました。
 
 ### 自分の現環境で、Scoopを使って入れたもの
-* nodejs-lts
-* bat
-* flutter
-* go
-* pandoc
-* python
-* tar
+- bat（ファイルの中身を表示するcatの強化版）
+- blender（フリーの3D制作ソフト）
+- FiraCode（モノスペースなコーディング向けフォント）
+- git（おなじみバージョン管理ツール）
+- heroku-cli（PaaSであるHerokuのCLI）
+- ngrok（localhostを外部公開するツール）
+- nodejs-lts（おなじみJavaScriptランタイム）
+- openssh（SSHプロトコルのソフトウェア）
+- plantuml（ダイアグラム書くためのツール）
+- python（機械学習でおなじみ動的型付けプログラミング言語）
+- source-han-code-jp（プログラミング向けの日本語フォント）
+- sudo（MacでおなじみsudoをWindowsでやるためのツール）
+- touch（MacでおなじみtouchをWindowsでやるためのツール）
+- yarn（Node.jsの依存関係管理ツール）
 
-Gitもあるので入れようと思ったんですけど、それは今保留状態です。  
-ちなみに、後述しますがextrasバケットを追加することでfirefoxとかhyperとかvscodeとか入れられます。pandocもextrasバケットがないと入れられません。
+記事を書いた当時はFlutterとGolang入れてたんですが、しばらく触ってなかったので落としました。Pythonは確かNode GYP関係で入れっぱにしてます。
 
-ということで、今回はnodejs-ltsをインストールすることを目標に作業を進めていきます！٩( 'ω' )و
+また、後述しますが、バケットというものを追加することでfirefoxとかvscodeが入れられます。
+
+ということで、今回はnodejs-ltsをインストールすることを目標に、作業を進めていきます！٩( 'ω' )و
 
 ## Scoopのインストール
-まずは、Scoopをインストールします。[公式サイト](https://scoop.sh/)にも書いてあるんですが、PowerShellに下記のコードをコピペしてPowerShellにペーストください。
+まずは、Scoopをインストールします。[公式サイト](https://scoop.sh/)にも書いてあるんですが、PowerShellに下記のコードをコピペしてください。
 ``` powershell
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+> Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 ```
 もしエラーが出たら、
-```
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+``` powershell
+> Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 ```
 を入れれば無事にインストールされるかと思います。`scoop -v`と入れてバージョン情報が表示されればインストール成功です。
 
 ## ScoopでNode.js(LTS)をインストール
 次に、今のScoopの環境にnodejs-ltsがあるかを確認します。
-```
-scoop search nodejs-lts
+``` powershell
+> scoop search nodejs-lts
 ```
 とPowerShellに入れてください。
 おそらく、
 
-```
-PS C:\Users\user> scoop search nodejs-lts
+``` powershell
+> scoop search nodejs-lts
 'main' bucket:
-    nodejs-lts (8.11.4)
+    nodejs-lts (12.19.0)
 ```
 となると思います。
 
 これが終わったら、次にNode.jsのインストールをしていきます。  
 インストールは簡単。
 
-```
-scoop install nodejs-lts
+``` powershell
+> scoop install nodejs-lts
 ```
 しばらくすると緑色で「インストール成功！（意訳）」と表示されますので、
-```
-node -v
+``` powershell
+> node -v
 ```
 と入力してみてください。これでバージョン情報が出たら終了です！ お疲れ様でした！
 
 ## おまけ
 ### その他のコマンド
 #### アンインストールする
-```
-scoop uninstall パッケージ名
+``` powershell
+> scoop uninstall パッケージ名
 ```
 #### 更新する
+``` powershell
+> scoop update
 ```
-scoop update
+すべて更新するときは、`*`をつけます（私はだいたいこれで済ませてます）
+``` powershell
+> scoop update *
 ```
 #### インストールしたものをリストで出す
-```
-scoop list
+``` powershell
+> scoop list
 ```
 
 ### インストールできる種類を増やす
+インストールするものは『バケット』というまとまりになっていて、ユーザーがバケットを増やすこともできます。  
+デフォルトでは`main`というバケットが入っており、さらに公式で`extras`というバケットも用意されています。
+
+正直、だいたいのソフトはこの2つに入っているのですが、それでも足りない場合は、GitHubで`scoop-bucket`というトピックを検索すれば他の人が作ったバケットを探すことができます。それでもなければ、自作しましょう。
+
+#### 既存のバケットを入手する
+
+#### バケットを自作する
 
 ### コマンドを短くしてみる
-scoopには`scoop alias`というコマンドが存在します。このコマンドによってinstallコマンドやsearchコマンドを自分好みに短くすることができるのです！  
+scoopには`scoop alias`というコマンドが存在します。このコマンドによってinstallコマンドやsearchコマンドを自分好みに短くすることができます。
+
 追加方法は簡単。
-```
-scoop alias add 使いたいコマンド名 そのコマンドを入れたら動作するコマンド 追加したコマンドの説明
+``` powershell
+> scoop alias add 使いたいコマンド名 そのコマンドを入れたら動作するコマンド 追加したコマンドの説明
 ```
 と入れれば、すぐに使うことができます。
 
 例えば、自分がscoop install～をscoop i～にしたいとします。  
 そうした場合、PowerShellに
-```
-scoop alias add i 'scoop install $args[0]' 'Install an app'
+``` powershell
+> scoop alias add i 'scoop install $args[0]' 'Install an app'
 ```
 と入れることで、scoop iでもscoop installと同等の機能を受けられるようになるのです。
 
 ### インストールで『SSL certificate problem～』と出て失敗したら
 たとえば、scoopでインストールしたものを一括で更新したいと思ったときに
-```
+``` powershell
 fatal: unable to access 'https://github.com/lukesampson/scoop/': SSL certificate problem: self signed certificate in certificate chain
 ```
 と出た場合。  

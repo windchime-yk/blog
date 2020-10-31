@@ -13,8 +13,8 @@ date: '2020/11/01'
 - package.jsonのCDN向けカスタマイズ
 
 ### babel-preset-transform-remove-export
-今回の開発では、Babelを使用します。`babel-preset-transform-remove-export`を下記のコマンドでインストールしてください。Babelについては特に制限はありませんが、`@babel/cli`での動作は確認しています。 
-```
+今回の開発では、Babelを使用します。`babel-preset-transform-remove-export`を下記のコマンドでインストールしてください。Babelについては特に制限はありませんが、`@babel/cli`での動作は確認しています。
+``` bash
 npm i -D babel-preset-transform-remove-export
 ```
 TypeScriptで開発している方は、別途`@babel/preset-typescript`をインストールして`.babelrc`の`presets`に追記してください。

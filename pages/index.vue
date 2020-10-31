@@ -4,7 +4,7 @@
       <h2 class="category__title">Tech</h2>
       <p class="category__text">ちょっと技術的なことを書くところ</p>
 
-      <section v-for="(item, index) in tech" :key="index" class="article">
+      <section v-for="(item, index) in publishDocs(tech)" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
           <time class="article__date" :datetime="item.date">{{ item.date }}</time>
@@ -17,7 +17,7 @@
       <h2 class="category__title">Diary</h2>
       <p class="category__text">技術とあんまり関係ないことを書くところ</p>
 
-      <section v-for="(item, index) in diary" :key="index" class="article">
+      <section v-for="(item, index) in publishDocs(diary)" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
           <time class="article__date" :datetime="item.date">{{ item.date }}</time>
@@ -30,6 +30,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { IContentDocument } from '@nuxt/content/types/content'
+
 export default Vue.extend({
   async asyncData({ $content }) {
     const tech = await $content('articles/tech').sortBy('date', 'desc').fetch()
@@ -38,6 +40,11 @@ export default Vue.extend({
       tech,
       diary,
     }
+  },
+  methods: {
+    publishDocs(category: IContentDocument[]): IContentDocument[] {
+      return category.filter((doc: IContentDocument) => !doc.draft)
+    },
   },
   head() {
     return {

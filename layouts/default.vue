@@ -20,7 +20,7 @@
 
 <style lang="scss">
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'M PLUS 1p', sans-serif;
   font-size: 62.5%;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

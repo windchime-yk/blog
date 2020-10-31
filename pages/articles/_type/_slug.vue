@@ -43,6 +43,7 @@ export default Vue.extend({
   margin-bottom: 30px;
 }
 .nuxt-content code {
+  font-family: 'Fira Code', monospace;
   font-size: 1.5rem;
 }
 </style>

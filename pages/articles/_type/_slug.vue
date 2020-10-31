@@ -72,6 +72,9 @@ export default Vue.extend({
 </style>
 
 <style lang="scss" scoped>
+.article {
+  margin-bottom: 100px;
+}
 .article__title {
   font-size: 4rem;
 }

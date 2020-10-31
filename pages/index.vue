@@ -39,6 +39,11 @@ export default Vue.extend({
       diary,
     }
   },
+  head() {
+    return {
+      title: '<whyk-log />',
+    }
+  },
 })
 </script>
 

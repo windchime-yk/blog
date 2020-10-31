@@ -3,7 +3,6 @@ import { NuxtConfig } from '@nuxt/types'
 const config: NuxtConfig = {
   target: 'static',
   head: {
-    title: '<whyk-log>',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

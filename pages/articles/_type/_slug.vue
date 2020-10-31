@@ -14,6 +14,12 @@ export default Vue.extend({
     const content = await $content(`articles/${params.type}/${params.slug}`).fetch()
     return { content }
   },
+  head() {
+    return {
+      // @ts-ignore
+      title: `${this.content.title} | <whyk-log />`,
+    }
+  },
 })
 </script>
 

@@ -16,6 +16,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VueInstance } from 'model/instance'
+import { IContentDocument } from '@nuxt/content/types/content'
+
+type Data = {
+  content: IContentDocument
+}
+type Methods = {}
+type Computed = {}
+type Props = {}
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
@@ -28,7 +37,7 @@ export default Vue.extend({
       title: `${this.content.title} | <whyk-log />`,
     }
   },
-})
+}) as VueInstance<Data, Methods, Computed, Props>
 </script>
 
 <style lang="scss">

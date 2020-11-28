@@ -20,7 +20,11 @@ const config: NuxtConfig = {
   css: [],
   plugins: [],
   components: true,
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/stylelint-module'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/color-mode',
+  ],
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content'],
   axios: {},
   content: {},

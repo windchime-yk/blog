@@ -107,4 +107,15 @@ export default Vue.extend({
 .article__text {
   margin-left: 10px;
 }
+
+.dark-mode {
+  .article__link {
+    color: #fff;
+  }
+  .article {
+    &:hover {
+      background-color: hsl(207, 64%, 20%);
+    }
+  }
+}
 </style>

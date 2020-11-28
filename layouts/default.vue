@@ -2,7 +2,7 @@
   <div>
     <header class="header">
       <div class="header__wrapper">
-        <nuxt-link class="header__link" to="/"><img src="~assets/logo.svg" alt="WhyK Log" /></nuxt-link>
+        <nuxt-link class="header__link" to="/"><img src="~assets/images/logo.svg" alt="WhyK Log" /></nuxt-link>
       </div>
     </header>
     <main class="main">
@@ -28,6 +28,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 *,
@@ -85,5 +90,15 @@ li {
 }
 .account__link {
   font-size: 1.5rem;
+}
+
+.dark-mode {
+  body {
+    background-color: #091a28;
+    color: #ebf4f1;
+  }
+  a {
+    color: #1d98d1;
+  }
 }
 </style>

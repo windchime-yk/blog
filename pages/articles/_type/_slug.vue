@@ -64,10 +64,38 @@ export default Vue.extend({
 .nuxt-content pre {
   padding: 20px;
   margin-bottom: 30px;
+  border-radius: 6px;
 }
 .nuxt-content code {
   font-family: 'Fira Code', monospace;
   font-size: 1.5rem;
+  text-shadow: none;
+}
+
+.nuxt-content .token.operator,
+.nuxt-content .token.entity,
+.nuxt-content .token.url,
+.nuxt-content .language-css,
+.nuxt-content .style .token.string {
+  color: #000;
+  background-color: #f5f2f0;
+}
+
+.dark-mode {
+  .nuxt-content pre {
+    background-color: #000;
+  }
+  .nuxt-content code {
+    color: #fff;
+  }
+  .nuxt-content .token.operator,
+  .nuxt-content .token.entity,
+  .nuxt-content .token.url,
+  .nuxt-content .language-css,
+  .nuxt-content .style .token.string {
+    color: #fff;
+    background-color: #000;
+  }
 }
 </style>
 

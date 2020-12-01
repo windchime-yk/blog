@@ -25,7 +25,7 @@
     "@nuxt/utils-edge": "^2.14.8-26775392.e02fecdf",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/composition-api": "^0.16.4",
-    "@nuxtjs/pwa": "^3.2.2",
+    "@nuxtjs/pwa": "^3.3.2",
     "core-js": "^3.7.0",
     "fs": "^0.0.1-security",
     "nuxt": "^2.14.7"

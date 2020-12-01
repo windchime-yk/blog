@@ -15,29 +15,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { VueInstance } from 'model/instance'
-import { IContentDocument } from '@nuxt/content/types/content'
+import { defineComponent, useAsync, useContext } from '@nuxtjs/composition-api'
 
-type Data = {
-  content: IContentDocument
-}
-type Methods = {}
-type Computed = {}
-type Props = {}
+export default defineComponent({
+  setup() {
+    const { $content, params } = useContext()
+    const content = useAsync(() => $content(`articles/${params.value.type}/${params.value.slug}`).fetch())
 
-export default Vue.extend({
-  async asyncData({ $content, params }) {
-    const content = await $content(`articles/${params.type}/${params.slug}`).fetch()
-    return { content }
-  },
-  head() {
     return {
-      // @ts-ignore
-      title: `${this.content.title} | <whyk-log />`,
+      content,
     }
   },
-}) as VueInstance<Data, Methods, Computed, Props>
+})
 </script>
 
 <style lang="scss">

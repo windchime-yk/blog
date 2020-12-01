@@ -29,38 +29,31 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { VueInstance } from 'model/instance'
-import { IContentDocument } from '@nuxt/content/types/content'
+import { defineComponent, useContext, useAsync, useMeta } from '@nuxtjs/composition-api'
+import type { CustomContentDocument } from 'model/content'
 
-type Data = {
-  tech: IContentDocument[]
-  diary: IContentDocument[]
-}
-type Methods = {}
-type Computed = {}
-type Props = {}
+export default defineComponent({
+  head: {},
+  setup() {
+    const { $content } = useContext()
+    const tech = useAsync(() => $content('articles/tech').sortBy('date', 'desc').fetch())
+    const diary = useAsync(() => $content('articles/diary').sortBy('date', 'desc').fetch())
 
-export default Vue.extend({
-  async asyncData({ $content }) {
-    const tech = await $content('articles/tech').sortBy('date', 'desc').fetch()
-    const diary = await $content('articles/diary').sortBy('date', 'desc').fetch()
+    function publishDocs(category: CustomContentDocument[]): CustomContentDocument[] {
+      return category.filter((doc: CustomContentDocument) => !doc.draft)
+    }
+
+    useMeta(() => ({
+      title: '<whyk-log />',
+    }))
+
     return {
       tech,
       diary,
+      publishDocs,
     }
   },
-  methods: {
-    publishDocs(category: IContentDocument[]): IContentDocument[] {
-      return category.filter((doc: IContentDocument) => !doc.draft)
-    },
-  },
-  head() {
-    return {
-      title: '<whyk-log />',
-    }
-  },
-}) as VueInstance<Data, Methods, Computed, Props>
+})
 </script>
 
 <style lang="scss" scoped>

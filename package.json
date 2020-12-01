@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "@nuxt/content": "^1.11.0",
+    "@nuxt/content": "^1.11.1",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxt/utils-edge": "^2.14.8-26775392.e02fecdf",
     "@nuxtjs/axios": "^5.12.2",

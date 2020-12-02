@@ -5,7 +5,7 @@
       <p class="category__text">ちょっと技術的なことを書くところ</p>
 
       <section v-for="(item, index) in publishDocs(tech)" :key="index" class="article">
-        <nuxt-link class="article__link" :to="item.path">
+        <nuxt-link class="article__link" :to="`${item.path}/`">
           <h3 class="article__title">{{ item.title }}</h3>
           <time class="article__date" :datetime="item.date">{{ item.date }}</time>
           <p class="article__text">{{ item.description }}</p>
@@ -18,7 +18,7 @@
       <p class="category__text">技術とあんまり関係ないことを書くところ</p>
 
       <section v-for="(item, index) in publishDocs(diary)" :key="index" class="article">
-        <nuxt-link class="article__link" :to="item.path">
+        <nuxt-link class="article__link" :to="`${item.path}/`">
           <h3 class="article__title">{{ item.title }}</h3>
           <time class="article__date" :datetime="item.date">{{ item.date }}</time>
           <p class="article__text">{{ item.description }}</p>

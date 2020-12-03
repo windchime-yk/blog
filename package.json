@@ -27,7 +27,7 @@
     "@nuxtjs/composition-api": "^0.16.4",
     "@nuxtjs/pwa": "^3.2.2",
     "core-js": "^3.7.0",
-    "fs": "^0.0.1-security",
+    "fs": "^0.0.2",
     "nuxt": "^2.14.7"
   },
   "devDependencies": {

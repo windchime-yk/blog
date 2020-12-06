@@ -1521,20 +1521,6 @@
     ts-node "^9.0.0"
     typescript "~4.0"
 
-"@nuxt/utils-edge@^2.14.8-26775392.e02fecdf":
-  version "2.14.8-26775392.e02fecdf"
-  resolved "https://registry.yarnpkg.com/@nuxt/utils-edge/-/utils-edge-2.14.8-26775392.e02fecdf.tgz#dc9a8c1e76e5185e4123cee9c0b76796b685a7ec"
-  integrity sha512-Oy6UoTo/wVlwI87Hl+n3soNnzdYRCK8Xf27JPs03J5SUw6L4OUWqaYRHj3wDSS/i2kErzkGr2w9Rms1qOgikKw==
-  dependencies:
-    consola "^2.15.0"
-    fs-extra "^8.1.0"
-    hash-sum "^2.0.0"
-    proper-lockfile "^4.1.1"
-    semver "^7.3.2"
-    serialize-javascript "^5.0.1"
-    signal-exit "^3.0.3"
-    ua-parser-js "^0.7.22"
-
 "@nuxt/utils@2.14.7":
   version "2.14.7"
   resolved "https://registry.yarnpkg.com/@nuxt/utils/-/utils-2.14.7.tgz#04d19351b5f4c33249c3497c41a00cdde0993e10"
@@ -5365,11 +5351,6 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
-
-fs@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.2.tgz#e1f244ef3933c1b2a64bd4799136060d0f5914f8"
-  integrity sha1-4fJE7zkzwbKmS9R5kTYGDQ9ZFPg=
 
 fsevents@^1.2.7:
   version "1.2.13"

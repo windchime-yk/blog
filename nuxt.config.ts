@@ -24,7 +24,6 @@ const config: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/color-mode',
-    '@nuxtjs/composition-api',
   ],
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content'],
   axios: {},

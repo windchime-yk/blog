@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, useContext } from '@nuxtjs/composition-api'
+import Vue from 'vue'
 
 type Contents = {
   prop: string
@@ -15,33 +15,32 @@ interface Data {
   contents: Contents[]
 }
 
-export default defineComponent({
+export default Vue.extend({
   props: {
     link: {
       type: String,
       default: '',
     },
   },
-  setup(props) {
-    const state = reactive<Data>({
+  data(): Data {
+    return {
       contents: [],
-    })
-    onMounted(async () => {
-      // ref: https://qiita.com/ksyunnnn/items/bfe2b9c568e97bb6b494
-      const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
-      const { $axios } = useContext()
-      const contents = await $axios.$get(`${CORS_PROXY}${props.link}`)
-      const text = contents
-      const el = new DOMParser().parseFromString(text, 'text/html')
-      const headEls = el.head.children
-      Array.from(headEls).map((item) => {
-        const prop = item.getAttribute('property') || item.getAttribute('name')
-        if (!prop || (!prop.includes('og:') && !prop.includes('twitter:'))) return
-        const contents = item.getAttribute('content')
-        state.contents.push({
-          prop,
-          contents,
-        })
+    }
+  },
+  async mounted() {
+    // ref: https://qiita.com/ksyunnnn/items/bfe2b9c568e97bb6b494
+    const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
+    const contents = await this.$axios.$get(`${CORS_PROXY}${this.link}`)
+    const text = contents
+    const el = new DOMParser().parseFromString(text, 'text/html')
+    const headEls = el.head.children
+    Array.from(headEls).map((item) => {
+      const prop = item.getAttribute('property') || item.getAttribute('name')
+      if (!prop || (!prop.includes('og:') && !prop.includes('twitter:'))) return
+      const contents = item.getAttribute('content')
+      this.contents.push({
+        prop,
+        contents,
       })
     })
   },

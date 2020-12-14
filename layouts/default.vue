@@ -33,6 +33,10 @@ html {
 body {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);
+  @media screen and (max-width: 896px) {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
 
 *,

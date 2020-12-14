@@ -21,9 +21,12 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .youtube {
   position: relative;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
   height: 0;
   margin-top: 20px;
-  padding-bottom: 56.25%;
+  padding-bottom: 45%;
   overflow: hidden;
 }
 iframe {

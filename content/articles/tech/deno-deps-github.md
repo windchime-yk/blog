@@ -11,7 +11,8 @@ date: '2020/12/06'
 
 ## Denoとは
 
-ザックリと説明しますと、Node.jsの作者さんが、Node.jsに関する10の反省点を踏まえて1から設計し直した新しいJavaScript/TypeScriptランタイムになります。
+ザックリと説明しますと、Node.jsの作者さんが、Node.jsに関する10の反省点を踏まえて1から設計し直した新しいJavaScript/TypeScriptランタイムになります。  
+以下の動画で、本人による説明がされています。時間がある方は御覧ください。
 <contents-youtube content-id="M3BM9TB-8yA">
 
 TypeScriptをデフォルトでサポートし、フラグで許可しない限りネットワークや環境変数のアクセスができないセキュアな仕組みが特徴です。

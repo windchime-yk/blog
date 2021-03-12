@@ -26,7 +26,7 @@ const config: NuxtConfig = {
   googleFonts: {
     families: {
       'Fira+Code': true,
-      'M+PLUS+1p': {
+      'Noto+Sans+JP': {
         wght: [400, 700],
       },
     },

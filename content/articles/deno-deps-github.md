@@ -1,7 +1,7 @@
 ---
 title: 'Denoの自作モジュールをGitHubから配信する'
 description: 'DenoはURLでのimportが基本なので、そんなこともできちゃいます'
-date: '2020/12/06'
+tags: deno,github
 ---
 
 ## はじめに

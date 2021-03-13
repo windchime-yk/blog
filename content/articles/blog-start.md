@@ -1,7 +1,7 @@
 ---
 title: 'ブログ始めました'
 description: 'NuxtJS大好き'
-date: '2020/12/06'
+tags: diary
 ---
 
 以下を使ってブログをはじめました。  

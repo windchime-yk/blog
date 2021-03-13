@@ -1,16 +1,16 @@
 <template>
   <article class="article">
-    <h1 class="article__title">{{ content.title }}</h1>
-    <time class="article__date" :datetime="content.date">{{ content.date }}</time>
-    <details class="toc">
+    <h1 class="article__title">{{ article.title }}</h1>
+    <time class="article__date" :datetime="article.date">{{ article.date }}</time>
+    <details v-if="article.toc.length !== 0" class="toc">
       <summary class="toc__title">Index</summary>
       <ul class="toc-list">
-        <li v-for="link in content.toc" :key="link.id" :class="['toc-list__item', `toc-list__item--0${link.depth}`]">
+        <li v-for="link in article.toc" :key="link.id" :class="['toc-list__item', `toc-list__item--0${link.depth}`]">
           <a :href="`#${link.id}`">{{ link.text }}</a>
         </li>
       </ul>
     </details>
-    <nuxt-content :document="content" />
+    <nuxt-content :document="article" />
   </article>
 </template>
 
@@ -19,13 +19,13 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
-    const content = await $content(`articles/${params.type}/${params.slug}`).fetch()
-    return { content }
+    const article = await $content(`articles/${params.slug}`).fetch()
+    return { article }
   },
   head() {
     return {
       // @ts-ignore
-      title: `${this.content.title} | <whyk-log />`,
+      title: `${this.article.title} | <whyk-log />`,
     }
   },
 })
@@ -33,7 +33,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .nuxt-content h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 .nuxt-content h3 {
@@ -95,7 +95,7 @@ export default Vue.extend({
   margin-bottom: 100px;
 }
 .article__title {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 .article__date {
   display: inline-block;

@@ -20,7 +20,7 @@
 
 <style lang="scss">
 html {
-  font-family: 'M PLUS 1p', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 62.5%;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

@@ -27,7 +27,7 @@ export default Vue.extend({
   head() {
     return {
       // @ts-ignore
-      title: `${this.articles.title} | <whyk-log />`,
+      title: `Tag: ${this.params.slug} | <whyk-log />`,
     }
   },
   methods: {

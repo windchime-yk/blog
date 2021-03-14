@@ -9,6 +9,15 @@
         updated: <time class="posttime__date" :datetime="formatDate(article.updatedAt)">{{ formatDate(article.updatedAt) }}</time>
       </li>
     </ul>
+    <div class="taglist">
+      <span>tags: </span>
+      <ul class="tags">
+        <li v-for="(item, index) in extractTags(article)" :key="index" class="tags__item">
+          <nuxt-link :to="`/tags/${item}`" class="tags__link">{{ item }}</nuxt-link>
+        </li>
+      </ul>
+    </div>
+
     <details v-if="article.toc.length !== 0" class="toc">
       <summary class="toc__title">Index</summary>
       <ul class="toc-list">
@@ -39,6 +48,10 @@ export default Vue.extend({
   methods: {
     formatDate(date: Article['createdAt'] | Article['updatedAt']): string {
       return this.$dayjs(date).format('YYYY/MM/DD')
+    },
+    extractTags(article: Article): string[] {
+      const tags = article.tags.split(',')
+      return tags
     },
   },
 })
@@ -110,9 +123,9 @@ export default Vue.extend({
 .article__title {
   font-size: 3.5rem;
 }
+
 .posttime {
   padding-left: 0;
-  margin-bottom: 30px;
 }
 .posttime__item {
   display: inline-block;
@@ -125,6 +138,21 @@ export default Vue.extend({
   display: inline-block;
   font-size: 1.5rem;
 }
+
+.tags {
+  padding-left: 0;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.tags__item {
+  display: inline;
+  list-style: none;
+  &::after {
+    content: ',';
+    margin-right: 8px;
+  }
+}
+
 .toc {
   margin-bottom: 30px;
 }

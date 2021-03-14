@@ -18,7 +18,7 @@
       <h2 class="section__title">Tags</h2>
       <ul class="tags">
         <li v-for="(item, index) in extractTags(articles)" :key="index" class="tags__item">
-          <nuxt-link :to="`tags/${item}`">{{ item }}</nuxt-link>
+          <nuxt-link :to="`/tags/${item}`" class="tags__link">{{ item }}</nuxt-link>
         </li>
       </ul>
     </section>
@@ -99,6 +99,21 @@ export default Vue.extend({
 }
 .article__text {
   margin-left: 10px;
+}
+
+.tags {
+  padding-left: 0;
+}
+.tags__item {
+  display: inline;
+  list-style: none;
+  &::after {
+    content: ',';
+    margin-right: 8px;
+  }
+}
+.tags__link {
+  font-size: 2rem;
 }
 
 .dark-mode {

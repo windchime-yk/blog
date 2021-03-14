@@ -1,7 +1,14 @@
 <template>
   <article class="article">
     <h1 class="article__title">{{ article.title }}</h1>
-    <time class="article__date" :datetime="article.date">{{ article.date }}</time>
+    <ul class="posttime">
+      <li class="posttime__item">
+        created: <time class="posttime__date" :datetime="formatDate(article.createdAt)">{{ formatDate(article.createdAt) }}</time>
+      </li>
+      <li class="posttime__item">
+        updated: <time class="posttime__date" :datetime="formatDate(article.updatedAt)">{{ formatDate(article.updatedAt) }}</time>
+      </li>
+    </ul>
     <details v-if="article.toc.length !== 0" class="toc">
       <summary class="toc__title">Index</summary>
       <ul class="toc-list">
@@ -16,6 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Article } from 'model/article'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
@@ -27,6 +35,11 @@ export default Vue.extend({
       // @ts-ignore
       title: `${this.article.title} | <whyk-log />`,
     }
+  },
+  methods: {
+    formatDate(date: Article['createdAt'] | Article['updatedAt']): string {
+      return this.$dayjs(date).format('YYYY/MM/DD')
+    },
   },
 })
 </script>
@@ -97,10 +110,20 @@ export default Vue.extend({
 .article__title {
   font-size: 3.5rem;
 }
-.article__date {
+.posttime {
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+.posttime__item {
+  display: inline-block;
+  list-style: none;
+  &:first-child {
+    margin-right: 16px;
+  }
+}
+.posttime__date {
   display: inline-block;
   font-size: 1.5rem;
-  margin-bottom: 30px;
 }
 .toc {
   margin-bottom: 30px;

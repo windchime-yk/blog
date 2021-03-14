@@ -116,7 +116,6 @@ export default Vue.extend({
 .article {
   border: 1px solid #999;
   margin-bottom: 20px;
-  padding: 20px 30px;
   border-radius: 6px;
   transition: background-color 0.5s ease;
   &:hover {
@@ -124,6 +123,8 @@ export default Vue.extend({
   }
 }
 .article__link {
+  display: block;
+  padding: 20px 30px;
   text-decoration: none;
   color: initial;
 }

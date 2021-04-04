@@ -22,7 +22,7 @@ const config: NuxtConfig = {
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
   ],
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content'],
+  modules: ['@nuxt/content'],
   googleFonts: {
     families: {
       'Fira+Code': true,
@@ -34,7 +34,6 @@ const config: NuxtConfig = {
     download: true,
     inject: true,
   },
-  axios: {},
   content: {},
   build: {},
 }

@@ -1,39 +1,68 @@
 <template>
   <article class="article">
-    <h1 class="article__title">{{ content.title }}</h1>
-    <time class="article__date" :datetime="content.date">{{ content.date }}</time>
-    <details class="toc">
+    <h1 class="article__title">{{ article.title }}</h1>
+    <ul class="posttime">
+      <li class="posttime__item">
+        created: <time class="posttime__date" :datetime="article.created">{{ article.created }}</time>
+      </li>
+      <li class="posttime__item">
+        updated: <time class="posttime__date" :datetime="updated">{{ updated }}</time>
+      </li>
+    </ul>
+    <div class="taglist">
+      <span>tags: </span>
+      <ul class="tags">
+        <li v-for="(item, index) in extractTags(article)" :key="index" class="tags__item">
+          <nuxt-link :to="`/tags/${item}`" class="tags__link">{{ item }}</nuxt-link>
+        </li>
+      </ul>
+    </div>
+
+    <details v-if="article.toc.length !== 0" class="toc">
       <summary class="toc__title">Index</summary>
       <ul class="toc-list">
-        <li v-for="link in content.toc" :key="link.id" :class="['toc-list__item', `toc-list__item--0${link.depth}`]">
+        <li v-for="link in article.toc" :key="link.id" :class="['toc-list__item', `toc-list__item--0${link.depth}`]">
           <a :href="`#${link.id}`">{{ link.text }}</a>
         </li>
       </ul>
     </details>
-    <nuxt-content :document="content" />
+    <nuxt-content :document="article" />
   </article>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { Article } from 'model/article'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
-    const content = await $content(`articles/${params.type}/${params.slug}`).fetch()
-    return { content }
+    const article = await $content(`articles/${params.slug}`).fetch()
+    return { article }
   },
   head() {
     return {
       // @ts-ignore
-      title: `${this.content.title} | <whyk-log />`,
+      title: `${this.article.title} | <whyk-log />`,
     }
+  },
+  computed: {
+    updated(): Article['created'] | Article['updated'] {
+      // @ts-ignore
+      return this.article.updated ? this.article.updated : this.article.created
+    },
+  },
+  methods: {
+    extractTags(article: Article): string[] {
+      const tags = article.tags.split(',')
+      return tags
+    },
   },
 })
 </script>
 
 <style lang="scss">
 .nuxt-content h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 .nuxt-content h3 {
@@ -95,13 +124,38 @@ export default Vue.extend({
   margin-bottom: 100px;
 }
 .article__title {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
-.article__date {
+
+.posttime {
+  padding-left: 0;
+}
+.posttime__item {
+  display: inline-block;
+  list-style: none;
+  &:first-child {
+    margin-right: 16px;
+  }
+}
+.posttime__date {
   display: inline-block;
   font-size: 1.5rem;
+}
+
+.tags {
+  padding-left: 0;
+  display: inline-block;
   margin-bottom: 30px;
 }
+.tags__item {
+  display: inline;
+  list-style: none;
+  &::after {
+    content: ',';
+    margin-right: 8px;
+  }
+}
+
 .toc {
   margin-bottom: 30px;
 }

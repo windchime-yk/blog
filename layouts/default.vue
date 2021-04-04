@@ -48,7 +48,8 @@ body {
 
 p,
 a,
-li {
+li,
+span {
   font-size: 1.6rem;
 }
 

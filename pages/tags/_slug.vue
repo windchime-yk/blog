@@ -1,11 +1,7 @@
 <template>
-  <div class="container">
+  <div>
     <section class="section">
-      <h2 class="section__title">About</h2>
-      <p>型安全と玄米茶が好きなWhyKのブログです。フロントエンド周りについて書いたりします。</p>
-    </section>
-    <section class="section">
-      <h2 class="section__title">Articles</h2>
+      <h2 class="section__title">Tag: {{ params.slug }}</h2>
       <section v-for="(item, index) in publishDocs(articles)" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
@@ -13,14 +9,6 @@
           <p class="article__text">{{ item.description }}</p>
         </nuxt-link>
       </section>
-    </section>
-    <section class="section">
-      <h2 class="section__title">Tags</h2>
-      <ul class="tags">
-        <li v-for="(item, index) in extractTags(articles)" :key="index" class="tags__item">
-          <nuxt-link :to="`/tags/${item}`" class="tags__link">{{ item }}</nuxt-link>
-        </li>
-      </ul>
     </section>
   </div>
 </template>
@@ -30,34 +18,86 @@ import Vue from 'vue'
 import { Article } from 'model/article'
 
 export default Vue.extend({
-  async asyncData({ $content }) {
-    const articles = await $content('articles').sortBy('created', 'desc').fetch()
-    return {
-      articles,
-    }
+  async asyncData({ $content, params }) {
+    const articles = await $content('articles')
+      .where({ tags: { $contains: params.slug } })
+      .fetch()
+    return { articles, params }
   },
   head() {
     return {
-      title: '<whyk-log />',
+      // @ts-ignore
+      title: `Tag: ${this.params.slug} | <whyk-log />`,
     }
   },
   methods: {
     publishDocs(articles: Article[]): Article[] {
       return articles.filter((article: Article) => !article.draft)
     },
-    extractTags(articles: Article[]): string[] {
-      const tags = articles.flatMap((article) => article.tags.split(','))
-      return [...new Set(tags)]
-    },
   },
 })
 </script>
 
-<style lang="scss" scoped>
-.container {
-  margin: 0 auto;
+<style lang="scss">
+.nuxt-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.nuxt-content h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.nuxt-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.nuxt-content ul {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.nuxt-content p {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.nuxt-content pre {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+.nuxt-content code {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.5rem;
+  text-shadow: none;
 }
 
+.nuxt-content .token.operator,
+.nuxt-content .token.entity,
+.nuxt-content .token.url,
+.nuxt-content .language-css,
+.nuxt-content .style .token.string {
+  color: #000;
+  background-color: #f5f2f0;
+}
+
+.dark-mode {
+  .nuxt-content pre {
+    background-color: #000;
+  }
+  .nuxt-content code {
+    color: #fff;
+  }
+  .nuxt-content .token.operator,
+  .nuxt-content .token.entity,
+  .nuxt-content .token.url,
+  .nuxt-content .language-css,
+  .nuxt-content .style .token.string {
+    color: #fff;
+    background-color: #000;
+  }
+}
+</style>
+
+<style lang="scss" scoped>
 .section {
   margin-bottom: 30px;
 }
@@ -97,21 +137,6 @@ export default Vue.extend({
 }
 .article__text {
   margin-left: 10px;
-}
-
-.tags {
-  padding-left: 0;
-}
-.tags__item {
-  display: inline;
-  list-style: none;
-  &::after {
-    content: ',';
-    margin-right: 8px;
-  }
-}
-.tags__link {
-  font-size: 2rem;
 }
 
 .dark-mode {

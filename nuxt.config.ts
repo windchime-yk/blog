@@ -13,8 +13,6 @@ const config: NuxtConfig = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.jpg' }],
   },
-  css: [],
-  plugins: [],
   components: true,
   buildModules: [
     '@nuxt/typescript-build',
@@ -34,8 +32,6 @@ const config: NuxtConfig = {
     download: true,
     inject: true,
   },
-  content: {},
-  build: {},
 }
 
 export default config

@@ -52,16 +52,16 @@ export default Vue.extend({
   margin-bottom: 20px;
 }
 .nuxt-content ul {
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 20px;
 }
 .nuxt-content p {
   font-size: 1.6rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .nuxt-content pre {
   padding: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 6px;
 }
 .nuxt-content code {

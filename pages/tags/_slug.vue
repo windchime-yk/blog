@@ -5,7 +5,7 @@
       <section v-for="(item, index) in publishDocs(articles)" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
-          <time class="article__date" :datetime="formatDate(item.date)">{{ formatDate(item.date) }}</time>
+          <time class="article__date" :datetime="item.created">{{ item.created }}</time>
           <p class="article__text">{{ item.description }}</p>
         </nuxt-link>
       </section>
@@ -33,9 +33,6 @@ export default Vue.extend({
   methods: {
     publishDocs(articles: Article[]): Article[] {
       return articles.filter((article: Article) => !article.draft)
-    },
-    formatDate(date: Article['createdAt'] | Article['updatedAt']): string {
-      return this.$dayjs(date).format('YYYY/MM/DD')
     },
   },
 })

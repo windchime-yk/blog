@@ -22,7 +22,7 @@ const config: NuxtConfig = {
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
   ],
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/dayjs'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content'],
   googleFonts: {
     families: {
       'Fira+Code': true,
@@ -36,12 +36,6 @@ const config: NuxtConfig = {
   },
   axios: {},
   content: {},
-  dayjs: {
-    locales: ['en', 'ja'],
-    defaultLocale: 'ja',
-    defaultTimeZone: 'Asia/Tokyo',
-    plugins: ['utc', 'timezone'],
-  },
   build: {},
 }
 

@@ -9,7 +9,7 @@
       <section v-for="(item, index) in publishDocs(articles)" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
-          <time class="article__date" :datetime="formatDate(item.createdAt)">{{ formatDate(item.createdAt) }}</time>
+          <time class="article__date" :datetime="item.created">{{ item.created }}</time>
           <p class="article__text">{{ item.description }}</p>
         </nuxt-link>
       </section>
@@ -31,7 +31,7 @@ import { Article } from 'model/article'
 
 export default Vue.extend({
   async asyncData({ $content }) {
-    const articles = await $content('articles').sortBy('createdAt', 'desc').fetch()
+    const articles = await $content('articles').sortBy('created', 'desc').fetch()
     return {
       articles,
     }
@@ -44,9 +44,6 @@ export default Vue.extend({
   methods: {
     publishDocs(articles: Article[]): Article[] {
       return articles.filter((article: Article) => !article.draft)
-    },
-    formatDate(date: Article['createdAt'] | Article['updatedAt']): string {
-      return this.$dayjs(date).format('YYYY/MM/DD')
     },
     extractTags(articles: Article[]): string[] {
       const tags = articles.flatMap((article) => article.tags.split(','))

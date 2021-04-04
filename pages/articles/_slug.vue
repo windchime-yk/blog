@@ -3,10 +3,10 @@
     <h1 class="article__title">{{ article.title }}</h1>
     <ul class="posttime">
       <li class="posttime__item">
-        created: <time class="posttime__date" :datetime="formatDate(article.createdAt)">{{ formatDate(article.createdAt) }}</time>
+        created: <time class="posttime__date" :datetime="article.created">{{ article.created }}</time>
       </li>
       <li class="posttime__item">
-        updated: <time class="posttime__date" :datetime="formatDate(article.updatedAt)">{{ formatDate(article.updatedAt) }}</time>
+        updated: <time class="posttime__date" :datetime="updated">{{ updated }}</time>
       </li>
     </ul>
     <div class="taglist">
@@ -45,10 +45,13 @@ export default Vue.extend({
       title: `${this.article.title} | <whyk-log />`,
     }
   },
-  methods: {
-    formatDate(date: Article['createdAt'] | Article['updatedAt']): string {
-      return this.$dayjs(date).format('YYYY/MM/DD')
+  computed: {
+    updated(): Article['created'] | Article['updated'] {
+      // @ts-ignore
+      return this.article.updated ? this.article.updated : this.article.created
     },
+  },
+  methods: {
     extractTags(article: Article): string[] {
       const tags = article.tags.split(',')
       return tags

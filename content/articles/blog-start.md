@@ -2,7 +2,7 @@
 title: 'ブログ始めました'
 description: '壁打ち感覚で更新していきたい気持ちです。'
 created: '2020/12/06'
-updated: '2021/04/05'
+updated: '2021/04/04'
 tags: diary
 ---
 

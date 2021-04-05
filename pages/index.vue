@@ -6,7 +6,7 @@
     </section>
     <section class="section">
       <h2 class="section__title">Articles</h2>
-      <section v-for="(item, index) in publishDocs(articles)" :key="index" class="article">
+      <section v-for="(item, index) in publishDocs" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
           <time class="article__date" :datetime="item.created">{{ item.created }}</time>
@@ -17,7 +17,7 @@
     <section class="section">
       <h2 class="section__title">Tags</h2>
       <ul class="tags">
-        <li v-for="(item, index) in extractTags(articles)" :key="index" class="tags__item">
+        <li v-for="(item, index) in extractTags" :key="index" class="tags__item">
           <nuxt-link :to="`/tags/${item}`" class="tags__link">{{ item }}</nuxt-link>
         </li>
       </ul>
@@ -26,30 +26,32 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { computed, defineComponent, ref, useContext, useFetch, useMeta } from '@nuxtjs/composition-api'
 import { Article } from 'model/article'
 
-export default Vue.extend({
-  async asyncData({ $content }) {
-    const articles = await $content('articles').sortBy('created', 'desc').fetch()
+export default defineComponent({
+  setup() {
+    const articles = ref<Article[]>([])
+    const { $content } = useContext()
+    useFetch(async () => {
+      articles.value = (await $content('articles').sortBy('created', 'desc').fetch()) as Article[]
+    })
+    const publishDocs = computed(() => articles.value.filter((article) => !article.draft))
+    const extractTags = computed(() => {
+      const tags = articles.value.flatMap((article) => article.tags.split(','))
+      return [...new Set(tags)]
+    })
+    useMeta(() => ({
+      title: '<whyk-log />',
+    }))
+
     return {
       articles,
+      publishDocs,
+      extractTags,
     }
   },
-  head() {
-    return {
-      title: '<whyk-log />',
-    }
-  },
-  methods: {
-    publishDocs(articles: Article[]): Article[] {
-      return articles.filter((article: Article) => !article.draft)
-    },
-    extractTags(articles: Article[]): string[] {
-      const tags = articles.flatMap((article) => article.tags.split(','))
-      return [...new Set(tags)]
-    },
-  },
+  head: {},
 })
 </script>
 

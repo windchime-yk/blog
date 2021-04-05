@@ -6,13 +6,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
   props: {
     type: {
       type: String,
       default: 'info',
-      validator(value) {
+      validator(value: string) {
         return ['info', 'warn', 'error'].includes(value)
       },
     },

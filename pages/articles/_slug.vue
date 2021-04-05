@@ -12,7 +12,7 @@
     <div class="taglist">
       <span>tags: </span>
       <ul class="tags">
-        <li v-for="(item, index) in extractTags(article)" :key="index" class="tags__item">
+        <li v-for="(item, index) in extractTags" :key="index" class="tags__item">
           <nuxt-link :to="`/tags/${item}`" class="tags__link">{{ item }}</nuxt-link>
         </li>
       </ul>
@@ -31,32 +31,35 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { computed, defineComponent, ref, useContext, useFetch, useMeta } from '@nuxtjs/composition-api'
 import { Article } from 'model/article'
 
-export default Vue.extend({
-  async asyncData({ $content, params }) {
-    const article = await $content(`articles/${params.slug}`).fetch()
-    return { article }
-  },
-  head() {
+export default defineComponent({
+  setup() {
+    const article = ref<Partial<Article>>({})
+
+    const { params, $content } = useContext()
+    useFetch(async () => {
+      article.value = (await $content(`articles/${params.value.slug}`).fetch()) as Article
+    })
+
+    useMeta(() => ({
+      title: `${article.value.title} | <whyk-log />`,
+    }))
+
+    const updated = computed(() => (article.value.updated ? article.value.updated : article.value.created))
+    const extractTags = computed(() => {
+      const tags = article.value.tags ? article.value.tags.split(',') : []
+      return tags
+    })
+
     return {
-      // @ts-ignore
-      title: `${this.article.title} | <whyk-log />`,
+      article,
+      updated,
+      extractTags,
     }
   },
-  computed: {
-    updated(): Article['created'] | Article['updated'] {
-      // @ts-ignore
-      return this.article.updated ? this.article.updated : this.article.created
-    },
-  },
-  methods: {
-    extractTags(article: Article): string[] {
-      const tags = article.tags.split(',')
-      return tags
-    },
-  },
+  head: {},
 })
 </script>
 

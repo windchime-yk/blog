@@ -19,6 +19,7 @@ const config: NuxtConfig = {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/composition-api',
   ],
   modules: ['@nuxt/content', '@nuxtjs/axios'],
   googleFonts: {

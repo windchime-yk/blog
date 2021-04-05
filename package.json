@@ -22,6 +22,7 @@
   "dependencies": {
     "@nuxt/content": "^1.11.0",
     "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/composition-api": "^0.22.4",
     "core-js": "^3.7.0",
     "nuxt": "^2.14.7"
   },

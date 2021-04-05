@@ -21,6 +21,7 @@ export default Vue.extend({
   async asyncData({ $content, params }) {
     const articles = await $content('articles')
       .where({ tags: { $contains: params.slug } })
+      .sortBy('created', 'desc')
       .fetch()
     return { articles, params }
   },

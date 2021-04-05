@@ -2,7 +2,7 @@
   <div>
     <section class="section">
       <h2 class="section__title">Tag: {{ params.slug }}</h2>
-      <section v-for="(item, index) in publishDocs(articles)" :key="index" class="article">
+      <section v-for="(item, index) in publishDocs" :key="index" class="article">
         <nuxt-link class="article__link" :to="item.path">
           <h3 class="article__title">{{ item.title }}</h3>
           <time class="article__date" :datetime="item.created">{{ item.created }}</time>
@@ -14,27 +14,31 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { computed, defineComponent, ref, useContext, useFetch, useMeta } from '@nuxtjs/composition-api'
 import { Article } from 'model/article'
 
-export default Vue.extend({
-  async asyncData({ $content, params }) {
-    const articles = await $content('articles')
-      .where({ tags: { $contains: params.slug } })
-      .fetch()
-    return { articles, params }
-  },
-  head() {
+export default defineComponent({
+  setup() {
+    const articles = ref<Article[]>([])
+    const { $content, params } = useContext()
+    useFetch(async () => {
+      articles.value = (await $content('articles')
+        .where({ tags: { $contains: params.value.slug } })
+        .sortBy('created', 'desc')
+        .fetch()) as Article[]
+    })
+    const publishDocs = computed(() => articles.value.filter((article) => !article.draft))
+    useMeta(() => ({
+      title: `Tag: ${params.value.slug} | <whyk-log />`,
+    }))
+
     return {
-      // @ts-ignore
-      title: `Tag: ${this.params.slug} | <whyk-log />`,
+      params,
+      articles,
+      publishDocs,
     }
   },
-  methods: {
-    publishDocs(articles: Article[]): Article[] {
-      return articles.filter((article: Article) => !article.draft)
-    },
-  },
+  head: {},
 })
 </script>
 

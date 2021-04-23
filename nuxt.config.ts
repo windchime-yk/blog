@@ -35,7 +35,7 @@ const config: NuxtConfig = {
   },
   dayjs: {
     locales: ['en', 'ja'],
-    defaultLocale: 'en',
+    defaultLocale: 'ja',
     defaultTimeZone: 'Asia/Tokyo',
     plugins: [
       'utc', // import 'dayjs/plugin/utc'

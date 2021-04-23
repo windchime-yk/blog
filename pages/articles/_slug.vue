@@ -38,18 +38,19 @@ export default defineComponent({
   setup() {
     const article = ref<Partial<Article>>({})
     const gitdata = ref<GithubDataList>([])
+    const updated = ref<string>('')
 
     const { params, $content, $axios, $dayjs } = useContext()
     useFetch(async () => {
       article.value = (await $content(`articles/${params.value.slug}`).fetch()) as Article
       gitdata.value = await $axios.$get(`https://api.github.com/repos/windchime-yk/blog/commits?path=content/articles/${params.value.slug}.md`)
+      updated.value = $dayjs(gitdata.value[0].commit.committer.date).format('YYYY/MM/DD HH:mm')
     })
 
     useMeta(() => ({
       title: `${article.value.title} | <whyk-log />`,
     }))
 
-    const updated = computed(() => $dayjs(gitdata.value[0].commit.committer.date).format('YYYY/MM/DD HH:mm'))
     const extractTags = computed(() => {
       const tags = article.value.tags ? article.value.tags.split(',') : []
       return tags

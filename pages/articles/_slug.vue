@@ -18,6 +18,10 @@
       </ul>
     </div>
 
+    <div v-if="datediff >= 0">
+      <span>この記事は{{ datediff }}年前の記事です。情報が古くなっている可能性があります。</span>
+    </div>
+
     <details v-if="article.toc.length !== 0" class="toc">
       <summary class="toc__title">Index</summary>
       <ul class="toc-list">
@@ -51,6 +55,7 @@ export default defineComponent({
       title: `${article.value.title} | <whyk-log />`,
     }))
 
+    const datediff = computed(() => $dayjs(updated.value).diff($dayjs(article.value.created), 'years'))
     const extractTags = computed(() => {
       const tags = article.value.tags ? article.value.tags.split(',') : []
       return tags
@@ -59,6 +64,7 @@ export default defineComponent({
     return {
       article,
       updated,
+      datediff,
       extractTags,
     }
   },

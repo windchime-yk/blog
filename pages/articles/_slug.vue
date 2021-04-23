@@ -32,22 +32,24 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, useContext, useFetch, useMeta } from '@nuxtjs/composition-api'
-import { Article } from 'model/article'
+import type { Article, GithubDataList } from 'model/article'
 
 export default defineComponent({
   setup() {
     const article = ref<Partial<Article>>({})
+    const gitdata = ref<GithubDataList>([])
 
-    const { params, $content } = useContext()
+    const { params, $content, $axios, $dayjs } = useContext()
     useFetch(async () => {
       article.value = (await $content(`articles/${params.value.slug}`).fetch()) as Article
+      gitdata.value = await $axios.$get(`https://api.github.com/repos/windchime-yk/blog/commits?path=content/articles/${params.value.slug}.md`)
     })
 
     useMeta(() => ({
       title: `${article.value.title} | <whyk-log />`,
     }))
 
-    const updated = computed(() => (article.value.updated ? article.value.updated : article.value.created))
+    const updated = computed(() => $dayjs(gitdata.value[0].commit.committer.date).format('YYYY/MM/DD HH:mm'))
     const extractTags = computed(() => {
       const tags = article.value.tags ? article.value.tags.split(',') : []
       return tags

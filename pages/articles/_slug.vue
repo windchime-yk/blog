@@ -18,6 +18,10 @@
       </ul>
     </div>
 
+    <div v-if="datediff > 0">
+      <notice type="warn">この記事は{{ datediff }}年前の記事です。情報が古くなっている可能性があります。</notice>
+    </div>
+
     <details v-if="article.toc.length !== 0" class="toc">
       <summary class="toc__title">Index</summary>
       <ul class="toc-list">
@@ -32,22 +36,26 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, useContext, useFetch, useMeta } from '@nuxtjs/composition-api'
-import { Article } from 'model/article'
+import type { Article, GithubDataList } from 'model/article'
 
 export default defineComponent({
   setup() {
     const article = ref<Partial<Article>>({})
+    const gitdata = ref<GithubDataList>([])
+    const updated = ref<string>('')
 
-    const { params, $content } = useContext()
+    const { params, $content, $axios, $dayjs } = useContext()
     useFetch(async () => {
       article.value = (await $content(`articles/${params.value.slug}`).fetch()) as Article
+      gitdata.value = await $axios.$get(`https://api.github.com/repos/windchime-yk/blog/commits?path=content/articles/${params.value.slug}.md`)
+      updated.value = $dayjs(gitdata.value[0].commit.committer.date).format('YYYY/MM/DD HH:mm')
     })
 
     useMeta(() => ({
       title: `${article.value.title} | <whyk-log />`,
     }))
 
-    const updated = computed(() => (article.value.updated ? article.value.updated : article.value.created))
+    const datediff = computed(() => $dayjs().diff($dayjs(updated.value), 'years'))
     const extractTags = computed(() => {
       const tags = article.value.tags ? article.value.tags.split(',') : []
       return tags
@@ -56,6 +64,7 @@ export default defineComponent({
     return {
       article,
       updated,
+      datediff,
       extractTags,
     }
   },

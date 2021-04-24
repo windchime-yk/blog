@@ -21,7 +21,7 @@ const config: NuxtConfig = {
     '@nuxtjs/google-fonts',
     '@nuxtjs/composition-api',
   ],
-  modules: ['@nuxt/content', '@nuxtjs/axios'],
+  modules: ['@nuxt/content', '@nuxtjs/axios', '@nuxtjs/dayjs'],
   googleFonts: {
     families: {
       'Fira+Code': true,
@@ -32,6 +32,15 @@ const config: NuxtConfig = {
     display: 'block',
     download: true,
     inject: true,
+  },
+  dayjs: {
+    locales: ['en', 'ja'],
+    defaultLocale: 'ja',
+    defaultTimeZone: 'Asia/Tokyo',
+    plugins: [
+      'utc', // import 'dayjs/plugin/utc'
+      'timezone', // import 'dayjs/plugin/timezone'
+    ], // Your Day.js plugin
   },
 }
 

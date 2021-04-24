@@ -23,19 +23,26 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .notice {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
   padding: 20px 30px;
+  border-width: 2px;
   border-radius: 6px;
   &--info {
+    color: #493d17;
     background-color: #91bdff;
   }
   &--warn {
-    background-color: #ffe58e;
+    color: #493d17;
+    background-color: #e4bf48;
   }
   &--error {
     background-color: #ff6565;
   }
 }
 .notice__title {
+  font-size: 1.8rem;
+  font-weight: bold;
   text-transform: uppercase;
 }
 </style>

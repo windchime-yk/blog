@@ -34,7 +34,7 @@ const config: NuxtConfig = {
     inject: true,
   },
   dayjs: {
-    locales: ['en', 'ja'],
+    locales: ['en'],
     defaultLocale: 'en',
   },
 }

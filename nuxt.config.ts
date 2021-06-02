@@ -35,11 +35,7 @@ const config: NuxtConfig = {
   },
   dayjs: {
     locales: ['en', 'ja'],
-    defaultLocale: 'ja',
-    plugins: [
-      'utc', // import 'dayjs/plugin/utc'
-      'timezone', // import 'dayjs/plugin/timezone'
-    ], // Your Day.js plugin
+    defaultLocale: 'en',
   },
 }
 

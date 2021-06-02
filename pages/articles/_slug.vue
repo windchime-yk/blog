@@ -18,6 +18,8 @@
       </ul>
     </div>
 
+    {{ testValue }}
+
     <div v-if="datediff > 0">
       <notice type="warn">この記事は{{ datediff }}年前の記事です。情報が古くなっている可能性があります。</notice>
     </div>
@@ -43,11 +45,13 @@ export default defineComponent({
     const article = ref<Partial<Article>>({})
     const gitdata = ref<GithubDataList>([])
     const updated = ref<string>('')
+    const testValue = ref<string>()
 
     const { params, $content, $axios, $dayjs } = useContext()
     useFetch(async () => {
       article.value = (await $content(`articles/${params.value.slug}`).fetch()) as Article
       gitdata.value = await $axios.$get(`https://api.github.com/repos/windchime-yk/blog/commits?path=content/articles/${params.value.slug}.md`)
+      testValue.value = gitdata.value[0].commit.committer.date
       updated.value = $dayjs(gitdata.value[0].commit.committer.date).format('YYYY/MM/DD HH:mm')
     })
 
@@ -64,6 +68,7 @@ export default defineComponent({
     return {
       article,
       updated,
+      testValue,
       datediff,
       extractTags,
     }

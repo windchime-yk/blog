@@ -8,4 +8,4 @@ WhyKのブログ。
 基本的に、直接PRを送っていただいて大丈夫です。  
 また、念のためDiscussionも用意しています。
 
-- 誤字脱字についてのDiscussion
+- [誤字脱字についてのDiscussion](https://github.com/windchime-yk/blog/discussions/63)

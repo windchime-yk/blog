@@ -1,5 +1,5 @@
 # WhyK Log
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=blog-whyk)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6a644939-1b8d-4bec-aec0-e3003d08991b/deploy-status)](https://app.netlify.com/sites/blog-whyk-dev/deploys)
 
 WhyKのブログ。  
 壁打ちのような立ち位置。

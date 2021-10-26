@@ -55,7 +55,8 @@ export default defineComponent({
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
-.nuxt-content ul {
+.nuxt-content ul,
+.nuxt-content ol {
   margin-top: 5px;
   margin-bottom: 20px;
 }

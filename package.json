@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "@nuxt/content": "^1.11.0",
+    "@nuxt/content": "^2.0.0",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/composition-api": "^0.22.4",
     "@nuxtjs/dayjs": "^1.4.0",

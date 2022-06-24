@@ -52,7 +52,7 @@
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
-    "stylelint-scss": "^3.19.0",
+    "stylelint-scss": "^4.0.0",
     "ts-node": "^10.0.0"
   }
 }

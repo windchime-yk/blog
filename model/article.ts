@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import type { IContentDocument } from '@nuxt/content/types/content'
+import type { IContentDocumentBase } from '@nuxt/content/types/content'
 
-export interface Article extends IContentDocument {
+export interface Article extends IContentDocumentBase {
   /** ドキュメントのタイトル */
   title: string
   /** ドキュメントの説明 */

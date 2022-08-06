@@ -54,7 +54,7 @@ span {
 }
 
 .header {
-  margin-bottom: 20q;
+  margin-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }

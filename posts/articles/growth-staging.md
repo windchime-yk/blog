@@ -1,16 +1,16 @@
 ---
-title: '自分の技術把握を始めた'
-description: 'すごい今更ですが始めていこうと思ってます。'
-created: '2021/10/26'
-tags: tech
+title: 自分の技術把握を始めた
+snippet: すごい今更ですが始めていこうと思ってます。
+publish_date: 2021-10-26
+tags: [tech]
 ---
 
 昔から技術を試すとき、基礎をやらずにいきなり応用をやることが多いので、「調べながらであれば、なんとなく使える」領域に留まることが多いと感じていました。  
 そこで、[Quoraに掲載されていたQ&A](https://jp.quora.com/%E3%81%A9%E3%81%86%E3%82%84%E3%81%A3%E3%81%A6%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC%E3%82%92%E8%BF%BD%E3%81%84%E3%81%8B%E3%81%91%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%81%8B-%E3%82%B8%E3%83%A5)を参考に、以下のGitHub Projectsを作成しました。
 
-<https://github.com/windchime-yk/windchime-yk/projects/3>
+https://github.com/windchime-yk/windchime-yk/projects/3
 
-このGitHub Projectsの目的は、『まったく知らない技術を減らし、あまりドキュメントを参照しなくても利用できるものを少しでも増やす』ことにあります。名前はシンプルに『Growth staging（成長段階）』としました。  
+このGitHub Projectsの目的は、『まったく知らない技術を減らし、あまりドキュメントを参照しなくても利用できるものを少しでも増やす』ことにあります。名前はシンプルに『Growth staging（成長段階）』としました。
 
 『Growth staging』は、大きく4段階に分かれています。
 

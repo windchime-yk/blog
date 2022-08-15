@@ -1,8 +1,8 @@
 ---
-title: 'ブログ始めました'
-description: '壁打ち感覚で更新していきたい気持ちです。'
-created: '2020/12/06'
-tags: diary
+title: ブログ始めました
+snippet: 壁打ち感覚で更新していきたい気持ちです。
+publish_date: 2020-12-06
+tags: [diary]
 ---
 
 はじめまして、WhyK（ファイケー）と言います。型安全と玄米茶が好きです。VueとTypeScriptとDenoを好んで触っており、ReactとGoは少し勉強中。  

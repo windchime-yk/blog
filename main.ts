@@ -7,6 +7,7 @@ blog({
   avatar: "./windchime2.jpg",
   avatarClass: "full",
   lang: "ja",
+  favicon: "./windchime2.jpg",
   links: [
     {
       title: "Twitter",

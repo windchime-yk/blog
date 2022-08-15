@@ -6,6 +6,7 @@ blog({
   description: "型安全と玄米茶が好きなWhyKのブログです。フロントエンド周りについて書いたりします。",
   avatar: "./windchime2.jpg",
   avatarClass: "full",
+  lang: "ja",
   links: [
     {
       title: "Twitter",

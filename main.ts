@@ -1,9 +1,13 @@
-import blog from "https://deno.land/x/blog@0.4.2/blog.tsx";
+import blog from "https://deno.land/x/blog@0.5.0/blog.tsx";
+
+const dateFormat = (date: Date) =>
+  Intl.DateTimeFormat("ja-JP", { dateStyle: "medium" }).format(date);
 
 blog({
   title: "WhyK Log",
   author: "WhyK",
   description: "型安全と玄米茶が好きなWhyKのブログです。フロントエンド周りについて書いたりします。",
+  dateFormat,
   avatar: "./windchime2.jpg",
   avatarClass: "full",
   lang: "ja",

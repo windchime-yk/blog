@@ -1,7 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --allow-net --allow-read --allow-env --no-check --watch main.ts --dev",
-    "serve": "deno run --allow-net --allow-read --allow-env --no-check main.ts",
+    "dev": "deno run --allow-net=0.0.0.0:8000 --allow-read --no-lock --watch main.ts",
     "fmt": "deno fmt --ignore=README.md,posts/"
   }
 }

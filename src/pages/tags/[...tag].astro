@@ -1,9 +1,10 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-import { Card, Badge, Button } from "flowbite-react";
+import { Card, Button } from "flowbite-react";
 import Layout from "layouts/Layout.astro";
 import FormattedDate from "components/FormattedDate.astro";
+import Tags from "components/Tags.tsx";
 import { SITE_TITLE } from "consts";
 
 export const getStaticPaths = (async () => {
@@ -43,13 +44,7 @@ const { posts } = Astro.props;
                 <p>
                   <FormattedDate date={post.data.publish_date} />
                 </p>
-                <ul class="flex">
-                  {post.data.tags.map((tag) => (
-                    <li>
-                      <Badge href={`/tags/${tag}`}>{tag}</Badge>
-                    </li>
-                  ))}
-                </ul>
+                <Tags tags={post.data.tags} />
               </div>
               <Button className="ml-auto" href={`/articles/${post.slug}/`}>
                 詳しく読む

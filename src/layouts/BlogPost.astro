@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Badge } from "flowbite-react";
 import { FaClockRotateLeft, FaPen } from "react-icons/fa6";
 import Layout from "layouts/Layout.astro";
 import FormattedDate from "components/FormattedDate.astro";
+import Tags from "components/Tags.tsx";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -30,16 +30,7 @@ const { title, description, publish_date, updated_date, tags } = Astro.props;
             )
           }
         </div>
-
-        <ul class="flex">
-          {
-            tags.map((tag) => (
-              <li>
-                <Badge href={`/tags/${tag}`}>{tag}</Badge>
-              </li>
-            ))
-          }
-        </ul>
+        <Tags tags={tags} />
       </div>
     </div>
     <slot />

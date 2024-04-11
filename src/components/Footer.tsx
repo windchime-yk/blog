@@ -4,7 +4,11 @@ import { FaGithub, FaXTwitter, FaHouse } from "react-icons/fa6";
 export default function Component() {
   return (
     <Footer container className="mt-10 rounded-none">
-      <Footer.Copyright className="text-center md:text-left" by="WhyK" year={new Date().getFullYear()} />
+      <Footer.Copyright
+        className="text-center md:text-left"
+        by="WhyK"
+        year={new Date().getFullYear()}
+      />
       <Footer.LinkGroup className="justify-center md:justify-normal mt-4 md:mt-0">
         <Footer.Link href="https://whyk.dev" target="_blank">
           <Footer.Icon

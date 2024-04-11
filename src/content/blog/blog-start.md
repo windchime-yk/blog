@@ -1,7 +1,7 @@
 ---
 title: ブログ始めました
-snippet: 壁打ち感覚で更新していきたい気持ちです。
-publish_date: 2020-12-06
+description: 壁打ち感覚で更新していきたい気持ちです。
+publish_date: "2020/12/06"
 tags: [diary]
 ---
 

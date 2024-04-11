@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Badge } from "flowbite-react";
+import Layout from "layouts/Layout.astro";
+import FormattedDate from "components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, publish_date, updated_date, tags } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <article class="dark:bg-slate-800 pt-5 pb-20 px-5 rounded">
+    <div>
+      <h1 class="text-4xl font-bold">{title}</h1>
+
+      <div class="flex items-center gap-2 mt-2 ml-2">
+        <div>
+          <FormattedDate date={publish_date} />
+          {
+            updated_date && (
+              <div>
+                Last updated on <FormattedDate date={updated_date} />
+              </div>
+            )
+          }
+        </div>
+
+        <ul class="flex">
+          {
+            tags.map((tag) => (
+              <li>
+                <Badge href={`/tags/${tag}`}>{tag}</Badge>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <slot />
+  </article>
+</Layout>

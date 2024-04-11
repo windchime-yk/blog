@@ -1,0 +1,64 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { Card, Badge, Button } from "flowbite-react";
+import Layout from "layouts/Layout.astro";
+import FormattedDate from "components/FormattedDate.astro";
+import { SITE_TITLE } from "consts";
+
+export const getStaticPaths = (async () => {
+  const allPosts = (await getCollection("blog")).sort((a, b) => {
+    return b.data.publish_date.valueOf() - a.data.publish_date.valueOf();
+  });
+
+  const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => {
+      return post.data.tags.includes(tag);
+    });
+
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout title={`${tag} | ${SITE_TITLE}`} description={`${tag}についてのページです。`}>
+
+  <section>
+    <h2 class="text-3xl">Tag Posts: {tag}</h2>
+    <ul class="flex flex-col gap-2 mt-2">
+      {
+        posts.map((post) => (
+          <li>
+            <Card>
+              <h4 class="text-2xl font-bold">{post.data.title}</h4>
+              <div class="flex items-center gap-2">
+                <p>
+                  <FormattedDate date={post.data.publish_date} />
+                </p>
+                <ul class="flex">
+                  {post.data.tags.map((tag) => (
+                    <li>
+                      <Badge href={`/tags/${tag}`}>{tag}</Badge>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Button className="ml-auto" href={`/articles/${post.slug}/`}>
+                詳しく読む
+              </Button>
+            </Card>
+            <a></a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

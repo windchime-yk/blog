@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Badge } from "flowbite-react";
+import { FaClockRotateLeft, FaPen } from 'react-icons/fa6';
 import Layout from "layouts/Layout.astro";
 import FormattedDate from "components/FormattedDate.astro";
 
@@ -14,13 +15,17 @@ const { title, description, publish_date, updated_date, tags } = Astro.props;
     <div>
       <h1 class="text-4xl font-bold">{title}</h1>
 
-      <div class="flex items-center gap-2 mt-2 ml-2">
-        <div>
-          <FormattedDate date={publish_date} />
+      <div class="flex flex-col gap-2 mt-2 ml-2">
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1">
+            <FaPen />
+            <FormattedDate date={publish_date} />
+          </div>
           {
             updated_date && (
-              <div>
-                Last updated on <FormattedDate date={updated_date} />
+              <div class="flex items-center gap-1">
+                <FaClockRotateLeft />
+                <FormattedDate date={updated_date} />
               </div>
             )
           }

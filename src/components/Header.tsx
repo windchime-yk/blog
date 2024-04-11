@@ -10,7 +10,7 @@ export default function Component() {
       </Navbar.Brand>
       <ul>
         <li>
-          <Navbar.Link href="/rss.xml">
+          <Navbar.Link className="border-0" href="/rss.xml">
             <FaRss className="text-2xl" />
           </Navbar.Link>
         </li>

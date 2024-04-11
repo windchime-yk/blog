@@ -1,0 +1,20 @@
+name: Checked Code
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Deno
+        uses: actions/setup-node@v4
+        with:
+          node-version: v20.x
+      - name: Check
+        run: |
+          pnpm astro check
+          pnpm biome ci .

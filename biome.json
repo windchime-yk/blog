@@ -1,0 +1,23 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.6.4/schema.json",
+  "organizeImports": {
+    "enabled": false
+  },
+  "javascript": {
+    "globals": ["Astro"]
+  },
+  "files": {
+    "ignore": [".astro"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "ignore": ["README.md"]
+  }
+}

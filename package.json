@@ -10,6 +10,10 @@
     "astro": "astro",
     "check": "biome check --apply-unsafe ."
   },
+  "volta": {
+    "node": "20.12.2",
+    "pnpm": "8.15.6"
+  },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.2.4",

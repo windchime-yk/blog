@@ -11,7 +11,7 @@ export default function Component() {
       <ul>
         <li>
           <Navbar.Link className="border-0" href="/rss.xml">
-            <FaRss className="text-2xl" />
+            <FaRss className="text-2xl" title="RSSのリンク" />
           </Navbar.Link>
         </li>
       </ul>

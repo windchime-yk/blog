@@ -13,7 +13,7 @@ dependencies:
     version: 2.3.1(astro@4.7.0)
   '@astrojs/react':
     specifier: ^3.2.0
-    version: 3.3.1(@types/react-dom@18.3.0)(@types/react@18.2.79)(react-dom@18.3.0)(react@18.3.0)(vite@5.2.11)
+    version: 3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.0)(react-dom@18.3.0)(react@18.3.0)(vite@5.2.11)
   '@astrojs/rss':
     specifier: ^4.0.5
     version: 4.0.5
@@ -25,7 +25,7 @@ dependencies:
     version: 5.1.0(astro@4.7.0)(tailwindcss@3.4.3)
   '@types/react':
     specifier: ^18.2.75
-    version: 18.2.79
+    version: 18.3.0
   '@types/react-dom':
     specifier: ^18.2.24
     version: 18.3.0
@@ -192,7 +192,7 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/react@3.3.1(@types/react-dom@18.3.0)(@types/react@18.2.79)(react-dom@18.3.0)(react@18.3.0)(vite@5.2.11):
+  /@astrojs/react@3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.0)(react-dom@18.3.0)(react@18.3.0)(vite@5.2.11):
     resolution: {integrity: sha512-dwN6B+C0hQ1jpeQ5EckICpqv76t6RxEslldCP0UQ/ospolNk8GjqL11X/xQSbftiQvGWRMT0Tj5f0Xk17k5qJQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
@@ -201,7 +201,7 @@ packages:
       react: ^17.0.2 || ^18.0.0
       react-dom: ^17.0.2 || ^18.0.0
     dependencies:
-      '@types/react': 18.2.79
+      '@types/react': 18.3.0
       '@types/react-dom': 18.3.0
       '@vitejs/plugin-react': 4.2.1(vite@5.2.11)
       react: 18.3.0
@@ -1507,11 +1507,11 @@ packages:
   /@types/react-dom@18.3.0:
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
     dependencies:
-      '@types/react': 18.2.79
+      '@types/react': 18.3.0
     dev: false
 
-  /@types/react@18.2.79:
-    resolution: {integrity: sha512-RwGAGXPl9kSXwdNTafkOEuFrTBD5SA2B3iEB96xi8+xu5ddUa/cpvyVCSNn+asgLCTHkb5ZxN8gbuibYJi4s1w==}
+  /@types/react@18.3.0:
+    resolution: {integrity: sha512-DiUcKjzE6soLyln8NNZmyhcQjVv+WsUIFSqetMN0p8927OztKT4VTfFTqsbAi5oAGIcgOmOajlfBqyptDDjZRw==}
     dependencies:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3

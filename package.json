@@ -11,11 +11,11 @@
     "check": "biome check --apply-unsafe ."
   },
   "volta": {
-    "node": "20.12.2",
+    "node": "20.13.1",
     "pnpm": "8.15.8"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
+    "@astrojs/check": "^0.6.0",
     "@astrojs/mdx": "^2.2.4",
     "@astrojs/react": "^3.2.0",
     "@astrojs/rss": "^4.0.5",

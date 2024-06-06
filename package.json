@@ -11,7 +11,7 @@
     "check": "biome check --apply-unsafe ."
   },
   "volta": {
-    "node": "20.13.1",
+    "node": "20.14.0",
     "pnpm": "8.15.8"
   },
   "dependencies": {

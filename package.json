@@ -11,9 +11,9 @@
     "check": "biome check --apply-unsafe ."
   },
   "volta": {
-    "node": "20.15.1"
+    "node": "20.16.0"
   },
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.6.0",
   "dependencies": {
     "@astrojs/check": "^0.8.0",
     "@astrojs/mdx": "^2.2.4",

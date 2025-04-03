@@ -16,7 +16,7 @@ importers:
         version: 2.3.1(astro@4.16.18(rollup@4.29.1)(typescript@5.8.2))
       '@astrojs/react':
         specifier: ^3.2.0
-        version: 3.6.3(@types/react-dom@18.3.5(@types/react@18.3.19))(@types/react@18.3.19)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.6.3(@types/react-dom@18.3.5(@types/react@18.3.20))(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@astrojs/rss':
         specifier: ^4.0.5
         version: 4.0.11
@@ -28,10 +28,10 @@ importers:
         version: 5.1.5(astro@4.16.18(rollup@4.29.1)(typescript@5.8.2))(tailwindcss@3.4.17)
       '@types/react':
         specifier: ^18.2.75
-        version: 18.3.19
+        version: 18.3.20
       '@types/react-dom':
         specifier: ^18.2.24
-        version: 18.3.5(@types/react@18.3.19)
+        version: 18.3.5(@types/react@18.3.20)
       astro:
         specifier: ^4.5.17
         version: 4.16.18(rollup@4.29.1)(typescript@5.8.2)
@@ -832,8 +832,8 @@ packages:
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react@18.3.19':
-    resolution: {integrity: sha512-fcdJqaHOMDbiAwJnXv6XCzX0jDW77yI3tJqYh1Byn8EL5/S628WRx9b/y3DnNe55zTukUQKrfYxiZls2dHcUMw==}
+  '@types/react@18.3.20':
+    resolution: {integrity: sha512-IPaCZN7PShZK/3t6Q87pfTkRm6oLTd4vztyoj+cbHUF1g3FfVb2tFIL79uCRKEfv16AhqDMBywP2VW3KIZUvcg==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -2855,10 +2855,10 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.6.3(@types/react-dom@18.3.5(@types/react@18.3.19))(@types/react@18.3.19)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@astrojs/react@3.6.3(@types/react-dom@18.3.5(@types/react@18.3.20))(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@types/react': 18.3.19
-      '@types/react-dom': 18.3.5(@types/react@18.3.19)
+      '@types/react': 18.3.20
+      '@types/react-dom': 18.3.5(@types/react@18.3.20)
       '@vitejs/plugin-react': 4.3.4(vite@5.4.11)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -3551,11 +3551,11 @@ snapshots:
 
   '@types/prop-types@15.7.14': {}
 
-  '@types/react-dom@18.3.5(@types/react@18.3.19)':
+  '@types/react-dom@18.3.5(@types/react@18.3.20)':
     dependencies:
-      '@types/react': 18.3.19
+      '@types/react': 18.3.20
 
-  '@types/react@18.3.19':
+  '@types/react@18.3.20':
     dependencies:
       '@types/prop-types': 15.7.14
       csstype: 3.1.3

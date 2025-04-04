@@ -1,0 +1,3 @@
+{
+  "extends": ["github>windchime-yk/renovate-config:maintenance"]
+}

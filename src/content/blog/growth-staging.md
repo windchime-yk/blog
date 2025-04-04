@@ -1,7 +1,7 @@
 ---
 title: 自分の技術把握を始めた
-snippet: すごい今更ですが始めていこうと思ってます。
-publish_date: 2021-10-26
+description: すごい今更ですが始めていこうと思ってます。
+publish_date: "2021/10/26"
 tags: [tech]
 ---
 

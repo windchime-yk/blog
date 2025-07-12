@@ -9,7 +9,9 @@ export default function Component({ tags }: ComponentProps) {
     <ul className="flex gap-1">
       {tags.map((tag) => (
         <li key={tag}>
-          <Badge href={`/tags/${tag}`}>{tag}</Badge>
+          <a href={`/tags/${tag}`}>
+            <Badge>{tag}</Badge>
+          </a>
         </li>
       ))}
     </ul>

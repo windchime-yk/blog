@@ -7,7 +7,7 @@
     "globals": ["Astro"]
   },
   "files": {
-    "ignore": [".astro"]
+    "ignore": [".astro", "dist", ".flowbite-react/class-list.json"]
   },
   "linter": {
     "enabled": true,

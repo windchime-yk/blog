@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.9.0
-        version: 0.9.4(typescript@5.8.3)
+        version: 0.9.4(typescript@5.9.2)
       '@astrojs/mdx':
         specifier: ^2.2.4
-        version: 2.3.1(astro@4.16.18(rollup@4.29.1)(typescript@5.8.3))
+        version: 2.3.1(astro@4.16.18(rollup@4.29.1)(typescript@5.9.2))
       '@astrojs/react':
         specifier: ^3.2.0
         version: 3.6.3(@types/react-dom@18.3.7(@types/react@18.3.23))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -22,10 +22,10 @@ importers:
         version: 4.0.12
       '@astrojs/sitemap':
         specifier: ^3.1.2
-        version: 3.4.2
+        version: 3.5.1
       '@astrojs/tailwind':
         specifier: ^5.1.0
-        version: 5.1.5(astro@4.16.18(rollup@4.29.1)(typescript@5.8.3))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@4.16.18(rollup@4.29.1)(typescript@5.9.2))(tailwindcss@3.4.17)
       '@types/react':
         specifier: ^18.2.75
         version: 18.3.23
@@ -34,10 +34,10 @@ importers:
         version: 18.3.7(@types/react@18.3.23)
       astro:
         specifier: ^4.5.17
-        version: 4.16.18(rollup@4.29.1)(typescript@5.8.3)
+        version: 4.16.18(rollup@4.29.1)(typescript@5.9.2)
       flowbite-react:
         specifier: ^0.11.0
-        version: 0.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(typescript@5.8.3)
+        version: 0.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(typescript@5.9.2)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -59,7 +59,7 @@ importers:
         version: 0.5.16(tailwindcss@3.4.17)
       typescript:
         specifier: ^5.4.4
-        version: 5.8.3
+        version: 5.9.2
 
 packages:
 
@@ -123,8 +123,8 @@ packages:
   '@astrojs/rss@4.0.12':
     resolution: {integrity: sha512-O5yyxHuDVb6DQ6VLOrbUVFSm+NpObulPxjs6XT9q3tC+RoKbN4HXMZLpv0LvXd1qdAjzVgJ1NFD+zKHJNDXikw==}
 
-  '@astrojs/sitemap@3.4.2':
-    resolution: {integrity: sha512-wfN2dZzdkto6yaMtOFa/J9gc60YE3wl3rgSBoNJ+MU3lJVUMsDY9xf9uAVi8Mp/zEQKFDSJlQzBvqQUpw0Hf6g==}
+  '@astrojs/sitemap@3.5.1':
+    resolution: {integrity: sha512-uX5z52GLtQTgOe8r3jeGmFRYrFe52mdpLYJzqjvL1cdy5Kg3MLOZEvaZ/OCH0fSq0t7e50uJQ6oBMZG0ffszBg==}
 
   '@astrojs/tailwind@5.1.5':
     resolution: {integrity: sha512-1diguZEau7FZ9vIjzE4BwavGdhD3+JkdS8zmibl1ene+EHgIU5hI0NMgRYG3yea+Niaf7cyMwjeWeLvzq/maxg==}
@@ -2474,8 +2474,8 @@ packages:
   typescript-auto-import-cache@0.3.3:
     resolution: {integrity: sha512-ojEC7+Ci1ij9eE6hp8Jl9VUNnsEKzztktP5gtYNRMrTmfXVwA1PITYYAkpxCvvupdSYa/Re51B6KMcv1CTZEUA==}
 
-  typescript@5.8.3:
-    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2813,12 +2813,12 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@astrojs/check@0.9.4(typescript@5.8.3)':
+  '@astrojs/check@0.9.4(typescript@5.9.2)':
     dependencies:
-      '@astrojs/language-server': 2.15.3(typescript@5.8.3)
+      '@astrojs/language-server': 2.15.3(typescript@5.9.2)
       chokidar: 4.0.1
       kleur: 4.1.5
-      typescript: 5.8.3
+      typescript: 5.9.2
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -2828,12 +2828,12 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.1': {}
 
-  '@astrojs/language-server@2.15.3(typescript@5.8.3)':
+  '@astrojs/language-server@2.15.3(typescript@5.9.2)':
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/yaml2ts': 0.2.1
       '@jridgewell/sourcemap-codec': 1.5.0
-      '@volar/kit': 2.4.6(typescript@5.8.3)
+      '@volar/kit': 2.4.6(typescript@5.9.2)
       '@volar/language-core': 2.4.6
       '@volar/language-server': 2.4.6
       '@volar/language-service': 2.4.6
@@ -2897,12 +2897,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@2.3.1(astro@4.16.18(rollup@4.29.1)(typescript@5.8.3))':
+  '@astrojs/mdx@2.3.1(astro@4.16.18(rollup@4.29.1)(typescript@5.9.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.16.18(rollup@4.29.1)(typescript@5.8.3)
+      astro: 4.16.18(rollup@4.29.1)(typescript@5.9.2)
       es-module-lexer: 1.5.0
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -2947,15 +2947,15 @@ snapshots:
       fast-xml-parser: 5.2.5
       kleur: 4.1.5
 
-  '@astrojs/sitemap@3.4.2':
+  '@astrojs/sitemap@3.5.1':
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/tailwind@5.1.5(astro@4.16.18(rollup@4.29.1)(typescript@5.8.3))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@4.16.18(rollup@4.29.1)(typescript@5.9.2))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 4.16.18(rollup@4.29.1)(typescript@5.8.3)
+      astro: 4.16.18(rollup@4.29.1)(typescript@5.9.2)
       autoprefixer: 10.4.20(postcss@8.5.1)
       postcss: 8.5.1
       postcss-load-config: 4.0.2(postcss@8.5.1)
@@ -3633,7 +3633,7 @@ snapshots:
 
   '@typescript-eslint/types@8.26.0': {}
 
-  '@typescript-eslint/typescript-estree@8.26.0(typescript@5.8.3)':
+  '@typescript-eslint/typescript-estree@8.26.0(typescript@5.9.2)':
     dependencies:
       '@typescript-eslint/types': 8.26.0
       '@typescript-eslint/visitor-keys': 8.26.0
@@ -3642,8 +3642,8 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.7.2
-      ts-api-utils: 2.1.0(typescript@5.8.3)
-      typescript: 5.8.3
+      ts-api-utils: 2.1.0(typescript@5.9.2)
+      typescript: 5.9.2
     transitivePeerDependencies:
       - supports-color
 
@@ -3665,12 +3665,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@volar/kit@2.4.6(typescript@5.8.3)':
+  '@volar/kit@2.4.6(typescript@5.9.2)':
     dependencies:
       '@volar/language-service': 2.4.6
       '@volar/typescript': 2.4.6
       typesafe-path: 0.2.2
-      typescript: 5.8.3
+      typescript: 5.9.2
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.0.8
 
@@ -3771,7 +3771,7 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro@4.16.18(rollup@4.29.1)(typescript@5.8.3):
+  astro@4.16.18(rollup@4.29.1)(typescript@5.9.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
@@ -3824,7 +3824,7 @@ snapshots:
       semver: 7.6.3
       shiki: 1.24.4
       tinyexec: 0.3.1
-      tsconfck: 3.1.4(typescript@5.8.3)
+      tsconfck: 3.1.4(typescript@5.9.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.3
       vite: 5.4.11
@@ -3834,7 +3834,7 @@ snapshots:
       yargs-parser: 21.1.1
       zod: 3.24.1
       zod-to-json-schema: 3.24.1(zod@3.24.1)
-      zod-to-ts: 1.2.0(typescript@5.8.3)(zod@3.24.1)
+      zod-to-ts: 1.2.0(typescript@5.9.2)(zod@3.24.1)
     optionalDependencies:
       sharp: 0.33.5
     transitivePeerDependencies:
@@ -4184,12 +4184,12 @@ snapshots:
 
   flattie@1.1.1: {}
 
-  flowbite-react@0.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(typescript@5.8.3):
+  flowbite-react@0.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(typescript@5.9.2):
     dependencies:
       '@floating-ui/core': 1.6.9
       '@floating-ui/react': 0.27.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@iarna/toml': 2.2.5
-      '@typescript-eslint/typescript-estree': 8.26.0(typescript@5.8.3)
+      '@typescript-eslint/typescript-estree': 8.26.0(typescript@5.9.2)
       chokidar: 4.0.3
       classnames: 2.5.1
       comment-json: 4.2.5
@@ -5917,15 +5917,15 @@ snapshots:
 
   trough@2.2.0: {}
 
-  ts-api-utils@2.1.0(typescript@5.8.3):
+  ts-api-utils@2.1.0(typescript@5.9.2):
     dependencies:
-      typescript: 5.8.3
+      typescript: 5.9.2
 
   ts-interface-checker@0.1.13: {}
 
-  tsconfck@3.1.4(typescript@5.8.3):
+  tsconfck@3.1.4(typescript@5.9.2):
     optionalDependencies:
-      typescript: 5.8.3
+      typescript: 5.9.2
 
   tslib@2.8.1: {}
 
@@ -5937,7 +5937,7 @@ snapshots:
     dependencies:
       semver: 7.6.3
 
-  typescript@5.8.3: {}
+  typescript@5.9.2: {}
 
   ultrahtml@1.5.3: {}
 
@@ -6288,9 +6288,9 @@ snapshots:
     dependencies:
       zod: 3.24.1
 
-  zod-to-ts@1.2.0(typescript@5.8.3)(zod@3.24.1):
+  zod-to-ts@1.2.0(typescript@5.9.2)(zod@3.24.1):
     dependencies:
-      typescript: 5.8.3
+      typescript: 5.9.2
       zod: 3.24.1
 
   zod@3.24.1: {}

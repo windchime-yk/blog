@@ -1,3 +1,5 @@
 {
-  "extends": ["github>windchime-yk/renovate-config:maintenance"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>windchime-yk/renovate-config:maintenance"],
+  "ignoreDeps": ["flowbite-react"]
 }

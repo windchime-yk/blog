@@ -12,7 +12,7 @@
     "postinstall": "flowbite-react patch"
   },
   "volta": {
-    "node": "20.19.5"
+    "node": "20.19.6"
   },
   "packageManager": "pnpm@9.15.9",
   "dependencies": {

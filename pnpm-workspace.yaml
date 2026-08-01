@@ -1,0 +1,6 @@
+# pnpm 10 以降は依存パッケージのビルドスクリプトが既定でブロックされるため、
+# 必要なものだけ明示的に許可する
+allowBuilds:
+  "@biomejs/biome": true
+  esbuild: true
+  sharp: true

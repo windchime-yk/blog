@@ -46,7 +46,7 @@ const { posts } = Astro.props;
                 </p>
                 <Tags tags={post.data.tags} />
               </div>
-              <Button className="ml-auto" href={`/articles/${post.slug}/`}>
+              <Button className="ml-auto" href={`/articles/${post.id}/`}>
                 詳しく読む
               </Button>
             </Card>
